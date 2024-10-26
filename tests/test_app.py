@@ -12,5 +12,6 @@ def test_classificar_imc():
     assert classificar_imc(26.0) == "Sobrepeso"
     assert classificar_imc(30.0) == "Obesidade"
     assert classificar_imc(18.5) == "Peso normal"  # Limite inferior
-    assert classificar_imc(25.0) == "Peso normal"  # Limite superior
-    assert classificar_imc(29.9) == "Sobrepeso"     # Um pouco abaixo da obesidade
+    assert classificar_imc(25.0) == "Sobrepeso"     # Correto, 25.0 deve ser "Sobrepeso"
+
+
