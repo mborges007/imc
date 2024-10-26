@@ -1,0 +1,41 @@
+name: CI Pipeline
+on:
+ push:
+ branches:
+ - main # Altere para o nome da branch padrão do seu
+repositório
+ pull_request:
+ branches:
+ - main # Altere para o nome da branch padrão do seu
+repositório
+jobs:
+ build:
+ runs-on: ubuntu-latest
+ steps:
+ - name: Checkout code
+ uses: actions/checkout@v2
+ - name: Set up Python
+ uses: actions/setup-python@v2
+ with:
+ python-version: '3.9' # Altere para a versão do Python
+que você deseja usar
+ - name: Install dependencies
+ run: |
+ python -m venv venv
+ . venv/bin/activate
+ pip install -r requirements.txt
+ - name: Run tests
+ run: |
+ . venv/bin/activate
+ python -m pytest tests/
+ - name: Build executable
+ run: |
+ . venv/bin/activate
+ pyinstaller --onefile app.py # Criar executável a
+partir do app.py
+ - name: Archive Executable
+ uses: actions/upload-artifact@v2
+ with:
+ name: imc_executable
+ path: dist/app # O caminho do executável gerado pelo
+PyInstaller
