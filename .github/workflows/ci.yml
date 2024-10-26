@@ -34,7 +34,7 @@ que você deseja usar
  pyinstaller --onefile app.py # Criar executável a
 partir do app.py
  - name: Archive Executable
- uses: actions/upload-artifact@v2
+ uses: actions/upload-artifact@v4
  with:
  name: imc_executable
  path: dist/app # O caminho do executável gerado pelo
